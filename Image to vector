@@ -1,0 +1,20 @@
+<script>
+// Add the JavaScript code here
+document.getElementById("image-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  var imageInput = document.getElementById("image-input");
+  var imagePreview = document.getElementById("image-preview");
+
+  var file = imageInput.files[0];
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+    var image = document.createElement("img");
+    image.src = e.target.result;
+    imagePreview.appendChild(image);
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
